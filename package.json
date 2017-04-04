@@ -1,0 +1,15 @@
+{
+  "name": "tcpserver1",
+  "version": "1.0.0",
+  "description": "tcp server client test written with electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Kim Do Young",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "nedb": "^1.8.0"
+  }
+}
