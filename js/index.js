@@ -5,9 +5,12 @@ alert(contents)
 
 var remote = require('electron').remote;
 document.addEventListener('keydown', (e)=>{
-    if(e.which == 123){
+    if(e.which == 123){ //F12
       remote.getCurrentWindow().webContents.openDevTools();
     }else if(e.which === 116){ //F5
       location.reload();
     }
 })
+document.addEventListener('click', function(e) {
+  console.log('clicked...');
+});

@@ -4,7 +4,8 @@
   "description": "tcp server client test written with electron",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "electron . --debug"
   },
   "author": "Kim Do Young",
   "license": "ISC",
