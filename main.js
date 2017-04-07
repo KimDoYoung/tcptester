@@ -2,7 +2,7 @@ const electron = require('electron')
 const {app, BrowserWindow, Menu} = electron
 
 const path = require('path')
-const url  = require('url')
+const url  = require('url');
 const glob = require('glob');
 
 const debug = /--debug/.test(process.argv[2])
@@ -28,8 +28,9 @@ function initialize(){
       slashes  : true
     }))
     //menu
-    var menu = Menu.buildFromTemplate(menuTemplate)
-    mainWindow.setMenu(menu)
+    require("./render-process/menu").setMenu();
+    // var menu = Menu.buildFromTemplate(menuTemplate.setMenu());
+    // mainWindow.setMenu(menu);
 
     mainWindow.on('closed', function(){
       mainWindow = null;
@@ -67,43 +68,7 @@ function loadMainProcess () {
   })
   //autoUpdater.updateMenu()
 }
-// menu Template
-const menuTemplate = [
-  {
-    label : 'Application',
-    submenu : [
-      {
-        label : 'About',
-        click : ()=>{
-          openAboutWindow();
-        }
-      }
-    ]
-  }
-]
 
-
-
-
-
-function openAboutWindow(){
-  let aboutWindow = new BrowserWindow({
-      parent  : mainWindow,
-      modal   : true,
-      show    : false,
-      width   : 400,
-      height  : 200
-  })
-  aboutWindow.loadURL(url.format({
-    pathname  : path.join(__dirname, 'html/about.html'),
-    protocol  : 'file',
-    slashes   : true
-  }))
-  aboutWindow.setMenu(null)
-  aboutWindow.once('ready-to-show', ()=>{
-    aboutWindow.show()
-  })
-}
 
 
 initialize();

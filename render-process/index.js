@@ -1,7 +1,7 @@
 document.write("The current version of i.js " + process.version)
 var fs = require('fs')
-var contents = fs.readFileSync('./package.json', 'utf-8')
-alert(contents)
+//var contents = fs.readFileSync('./package.json', 'utf-8')
+//alert(contents)
 
 var remote = require('electron').remote;
 document.addEventListener('keydown', (e)=>{
